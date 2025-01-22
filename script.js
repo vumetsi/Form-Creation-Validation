@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listener to form for submission
   form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault(); // Prevent default form submission behavior
 
     // Retrieve and trim the input values
     const username = document.getElementById('username').value.trim();
@@ -35,17 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Display feedback
-    displayFeedback(isValid, messages);
-  });
-
-  /**
-   * Display feedback to the user
-   * @param {boolean} isValid - Whether the validation was successful
-   * @param {Array} messages - Array of validation error messages
-   */
-  function displayFeedback(isValid, messages) {
     feedbackDiv.style.display = 'block';
     if (isValid) {
-      feedbackDiv.textContent = 'Registration successful!';
-      feedb
+      feedbackDiv.innerHTML = 'Registration successful!';
+      feedbackDiv.style.color = '#28a745'; // Success color
+    } else {
+      feedbackDiv.innerHTML = messages.join('<br>'); // Join messages with <br> tags
+      feedbackDiv.style.color = '#dc3545'; // Error color
+    }
+  });
+});
+
  
